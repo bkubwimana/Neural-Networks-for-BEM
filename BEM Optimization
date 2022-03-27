@@ -1,0 +1,59 @@
+The optimization performed here is not the same as the optimization performed
+while developing the NN prediction model. The optimization is meant to find design
+variables that provide the minimum building energy consumption; this is done using a
+genetic function minimization algorithm. The NN surrogate model can only predict the
+energy consumption given a design variable inputs and doesn’t modify the design variable.
+The surrogate model is enhanced when coupled with the GA to predict and select the best
+design variables with the lowest building energy consumption. Genetic algorithms make it
+possible to find a function's maximum (or a minimum), using operations analogous to those
+in the DNA of living beings: selection, crossing, and mutations 
+
+The optimization process was carried out in 5 steps. The first step was population
+initialization, which is achieved by producing 100 different outputs from the surrogate model
+and saving the corresponding values for each design variable.
+The second step is candidate selection. The selection process involves taking candidates
+from the population in the mating pool. Based on the previously calculated energy
+consumption value, a threshold (lower energy consumption than previously calculated) is
+used to select the best individuals. From the selected subset, parents are prepared for the
+mating. Selecting the parents to be used in mating is done using the Roulette wheel selection,
+which is an efficient way of selecting candidates by giving a higher probability of selection
+to the parents that have a lower energy consumption design model. The third step involves
+doing a crossover, where offspring are generated from two candidate parents. These
+offsprings have similar genetic properties as their parents, mathematically represented as
+decimal values in this study. Offsprings are then mutated to provide a different version with
+different genetic properties from its parent. New offspring are merged with the population,
+and the pool is sorted. Poor candidates are eliminated from the population. The remaining
+population is part of a new generation that undergoes a similar process starting from step 1
+until a solution with the lowest energy consumption can not be overtaken. The process should
+51
+be done in only 100 iterations; thus, either the minimum or energy consumption is reached,
+or the iterations are reached. The last step is terminating the process when the best solution
+is reached, and this can be compared as reaching the global minimum. 
+
+
+The minimization function approach is summarised with the equation below
+min 𝑓(𝑥) = 𝑚𝑖𝑛 𝑜𝑓 𝑠𝑢𝑟𝑟𝑜𝑔𝑎𝑡𝑒 𝑚𝑜𝑑𝑒𝑙
+𝑐𝑜𝑛𝑠𝑡𝑎𝑖𝑛𝑒𝑑 𝑡𝑜
+ 10 ≤ x1 = 𝑊𝑎𝑙𝑙 𝑅 𝑉𝑎𝑙𝑢𝑒 ≤ 25
+25 ≤ x2 = 𝑟𝑜𝑜𝑓 𝑅 𝑉𝑎𝑙𝑢𝑒 ≤ 45
+2 ≤ x3 = 𝐻𝑉𝐴𝐶 𝐶𝑂𝑃 ≤ 5.5
+1 ≤ 𝑥4 = 𝑊𝑖𝑛𝑑𝑜𝑤 𝑈 𝑣𝑎𝑙𝑢𝑒 ≤ 7
+0.1 ≤ 𝑥5 = 𝑊𝑖𝑛𝑑𝑜𝑤 𝑆𝐻𝐺𝐶 ≤ 1
+21 ≤ x6= 𝐶𝑜𝑜𝑙 𝑠𝑒𝑡𝑝𝑜𝑖𝑛𝑡 ≤ 26
+2 ≤ x7= 𝐿𝑖𝑔ℎ𝑡 𝑝𝑜𝑤𝑒𝑟 𝑑𝑒𝑛𝑠𝑖𝑡𝑦 ≤ 15
+
+The GA optimization approach minimizes the energy consumption of the pandemic
+surrogate model. In other words, GA determines design variables that produce a building
+model with minimized energy use. The surrogate model is used as a fitness function to find
+a building design that may provide a lower energy consumption. These results can be
+compared to the results and design obtained when the minimization is done using the
+Bayesian Algorithm. 
+
+Comparatively, the Bayesian optimization uses a surrogate model as a black-box function to
+be minimized. An available package within python called Scikit Optimizer allows
+implementing the Bayesian optimization on the surrogate model. Thus this was worth
+implementing on the already developed surrogate model to compare the performance with
+the self-developed genetic algorithm; most of the inputs to this Bayesian algorithm are
+similar to those used in the genetic algorithm. Since the optimization variables considered in
+this study do not change for both the pandemic and regular operation models, the
+optimization illustration is only performed on the regular operation surrogate model.
