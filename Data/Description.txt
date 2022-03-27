@@ -1,6 +1,0 @@
-Performing multiple simulations can be made easier by automating the process. In this study,
-Python is being used to perform simulations on a locally installed EnergyPlus software
-iteratively. Thus, running multiple simulations is automated to reduce the time that would
-otherwise be taken to manually run individual simulations and later gather all data needed to
-develop the NN surrogate model. A Python package, Eppy, was used to work with
-EnergyPlus using Python. 
