@@ -1,1 +1,2 @@
-
+EnergyPlus model is simulated automatically using the python package --Eppy
+Data is then saved to be used by the Network for learning and testing
