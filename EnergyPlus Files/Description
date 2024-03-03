@@ -1,1 +1,6 @@
-This folder contains the energyPlus model for the building modeled in this study
+This folder contains the EnergyPlus model for the building modeled in this study
+
+Download EnergyPlus from https://energyplus.net/downloads. Note that compatibility with your system is important.
+You can also just use Openstudio as the front end, but you still need to download E+ so Open can call it on your system.
+Use the EnergyModel IDF (input data file) in this repos to start your analysis either in OpenStudio or E+ directly.
+
