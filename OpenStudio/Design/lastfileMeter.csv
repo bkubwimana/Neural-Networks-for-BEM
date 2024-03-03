@@ -1,0 +1,2 @@
+Date/Time,Photovoltaic:ElectricityProduced [J](RunPeriod),Electricity:Facility [J](RunPeriod),ElectricityNet:Facility [J](RunPeriod),ElectricityProduced:Facility [J](RunPeriod) 
+simdays=365,50654757702.981098,96027240599.4737,47503871446.10361,48523369153.3711 
